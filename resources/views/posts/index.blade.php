@@ -18,7 +18,7 @@
                         <div>body : {{$post->body}}</div>
                     </div>
 
-                    {{-- ログインユーザーがいいねしている投稿と一致していれば、赤色のハートマークを表示 --}}
+                    {{-- ログインユーザーが「いいね」をしている投稿の中に、$post->idが含まれていれば赤色のハートを表示--}}
                     @if ($liked_post_lists->contains($post->id))
                         <div class="flex">
                             <form action={{route("unlike", $post->id)}} method="POST" class="border-red-500">

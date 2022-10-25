@@ -20,6 +20,7 @@ class Post extends Model
         return $this->belongsTo(User::class);
     }
 
+    // 投稿に「いいね」したユーザーを取得するためのリレーションメソッド
     public function likedUsers()
     {
         return $this->belongsToMany(User::class, "likes", "post_id", "user_id");

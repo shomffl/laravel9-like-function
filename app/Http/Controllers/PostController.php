@@ -9,6 +9,9 @@ class PostController extends Controller
 {
     public function index(Post $post)
     {
+        /**
+         * liked_post_listsにAuthユーザーが「いいね」をした投稿を格納。ハートマークの色を変えるために使用。
+         */
         return view("posts/index")->with(["posts" => $post->with("likedUsers")->get(), "liked_post_lists" => auth()->user()->likedPosts]);
     }
 

@@ -42,6 +42,7 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    // ユーザーが「いいね」した投稿を取得するためのリレーションメソッド
     public function likedPosts()
     {
         return $this->belongsToMany(Post::class, "likes", "user_id", "post_id");
