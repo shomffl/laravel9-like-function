@@ -21,7 +21,7 @@
                     {{-- ログインユーザーが「いいね」をしている投稿の中に、$post->idが含まれていれば赤色のハートを表示--}}
                     @if ($liked_post_lists->contains($post->id))
                         <div class="flex">
-                            <form action={{route("unlike", $post->id)}} method="POST" class="border-red-500">
+                            <form action={{"/unlike/" . $post->id}} method="POST" class="border-red-500">
                                 @csrf
                                 <button type="submit"><img class="w-1/2" src="{{ asset('/image/red-heart.png') }}"></button>
                             </form>
@@ -30,7 +30,7 @@
                         </div>
                     @else
                         <div class="flex">
-                            <form action={{route("like", $post->id)}} method="POST" class="border-red-500">
+                            <form action={{"/like/" . $post->id}} method="POST" class="border-red-500">
                                 @csrf
                                 <button type="submit"><img class="w-1/2" src="{{ asset('/image/gray-heart.png') }}"></button>
                             </form>
